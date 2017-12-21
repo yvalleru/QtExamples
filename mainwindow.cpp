@@ -8,6 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    initialisevalues();
+}
+
+void MainWindow::initialisevalues()
+{
+    for(int i=0;i<10; ++i)
+        m_list.push_back(i);
 }
 
 MainWindow::~MainWindow()
@@ -15,8 +22,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::printValues()
+{
+    ui->textedit->clear();
+    for(int i=0; i<m_list.size(); ++i)
+    {
+        QString str;
+        ui->textedit->append(str.setNum(i));
+    }
+}
+
 void MainWindow::on_add_clicked()
 {
-    m_list.append(ui->number->value());
-    qDebug() << m_list;
+
+    m_list.push_back(m_list.size());
+    printValues();
+
+}
+
+void MainWindow::on_remove_clicked()
+{
+    if(!m_list.empty())
+    {
+        m_list.pop_back();
+        printValues();
+    }
 }
