@@ -9,10 +9,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     initialisevalues();
+
 }
 
 void MainWindow::initialisevalues()
 {
+
+    m_str << "VoltageSet" << "CurrentSet"<< "VoltageNominal" << "CurrentNominal" << "ModuleList"
+        << "PowerOn" << "Article" << "ServerVersion" << "CrateNumber" << "Temperature";
+    ui->listWidget->addItems(m_str);
     for(int i=0;i<10; ++i)
         m_list.push_back(i);
 }
@@ -47,4 +52,7 @@ void MainWindow::on_remove_clicked()
         m_list.pop_back();
         printValues();
     }
+   qDeleteAll(ui->listWidget->selectedItems());
+
 }
+

@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QList<int> m_list;
+    QList<QString> m_str ;
     void initialisevalues();
     void printValues();
 };
