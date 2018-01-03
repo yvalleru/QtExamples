@@ -25,10 +25,8 @@ MainWindow::~MainWindow()
 void MainWindow::printValues()
 {
     ui->textedit->clear();
-    for(int i=0; i<m_list.size(); ++i)
-    {
-        QString str;
-        ui->textedit->append(str.setNum(i));
+    for(int i=0; i<m_list.size(); ++i) {
+        ui->textedit->append(QString::number(i));
     }
 }
 
