@@ -20,6 +20,8 @@ private slots:
 
     void on_remove_clicked();
 
+    void on_insert_clicked();
+
 private:
     Ui::MainWindow *ui;
     QList<int> m_list;
